@@ -43,6 +43,7 @@ body {
     padding-top: 60px;
     overflow-y: auto;
     transition: transform 0.3s ease-in-out;
+    z-index: 1000;
 }
 
 .sidebar nav ul {
@@ -126,8 +127,35 @@ section {
     margin: 0 auto;
     padding: 20px;
 }
-
-
+.relay-status{
+    margin-bottom: 10px;
+    padding-inline: 20px;
+    border-radius:8px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 80%;
+}
+.relay-status-text {
+    background-color: #239954;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+}
+.relay-status.on-relay-status{
+    background-color: #00b4d8;
+    color: white;
+}
+.relay-status.off-relay-status{
+    background-color: red;
+    color: white;
+}
+.relay-status.on-relay-status .relay-status-text {
+    background-color: #005f72;
+}
+.relay-status.off-relay-status .relay-status-text {
+    background-color: rgb(148, 0, 0);
+}
 /* Sensor Readings Cards */
 .sensor-readings {
     display: flex;
@@ -176,7 +204,7 @@ section {
 }
 @media screen and (max-width: 768px) {
    .data-card {
-        width: 60%;
+        width: 80%;
     }
     .data-card p{
         font-size: 3rem;

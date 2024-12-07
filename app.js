@@ -45,6 +45,15 @@ function updateReadings() {
     // Update the relay status based on some condition
     const relayStatus = current > 1.5 ? 'On' : 'Off'; // Example condition for relay status
     document.getElementById('relay-status').innerText = relayStatus;
+    if(relayStatus==='On'){
+        document.getElementById('relay-status-bar').classList.add('on-relay-status');
+        document.getElementById('relay-status-bar').classList.remove('off-relay-status');
+    }
+    else{
+        document.getElementById('relay-status-bar').classList.add('off-relay-status');
+        document.getElementById('relay-status-bar').classList.remove('on-relay-status');
+    }
+   
 
     // Update the power and energy cards
     document.getElementById('power').innerText = `${power} W`;
