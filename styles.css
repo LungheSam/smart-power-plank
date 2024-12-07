@@ -66,6 +66,32 @@ body {
     background-color: #00b4d8;
     color: #000;
 }
+/* Profile Card Styles */
+.profile-card {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-inline: 10px;
+    padding: 20px 10px;
+    background-color: #29293d;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.profile-card .profile-picture {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 3px solid #00b4d8;
+}
+
+.profile-card .user-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+}
 
 /* Content */
 .content {
