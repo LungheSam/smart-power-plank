@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Plug</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Bar -->
+    <header class="top-bar">
+        <div class="logo">
+            <span>Smart Plug</span>
+        </div>
+        <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <nav>
+            <ul>
+                <li><a href="#dashboard" class="nav-link active" onclick="showView('dashboard')"><i class='bx bxs-dashboard' ></i> Dashboard</a></li>
+                <li><a href="#readings" class="nav-link" onclick="showView('readings')"><i class='bx bx-signal-4' ></i> Readings</a></li>
+                <li><a href="#historical-data" class="nav-link" onclick="showView('historical-data')"><i class='bx bxs-bar-chart-alt-2' ></i> Historical Data</a></li>
+                <li><a href="#remote-control" class="nav-link" onclick="showView('remote-control')"> <i class='bx bx-wifi' ></i> Remote Control</a></li>
+                <li><a href="#notifications-alerts" class="nav-link" onclick="showView('notifications-alerts')"><i class='bx bxs-bell' ></i> Notifications</a></li>
+                <li><a href="#settings" class="nav-link" onclick="showView('settings')"><i class='bx bxs-cog'></i> Settings</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+        <div id="dashboard" class="view active-view">
+            <h1>Dashboard</h1>
+            <p>Overview of system activity and metrics.</p>
+        </div>
+        <div id="readings" class="view">
+            <h1>Readings</h1>
+            <p>Real-time power monitoring and readings display.</p>
+        </div>
+        <div id="historical-data" class="view">
+            <h1>Historical Data</h1>
+            <p>Graphs and trends based on past energy usage.</p>
+        </div>
+        <div id="remote-control" class="view">
+            <h1>Remote Control</h1>
+            <p>Manage plug settings and automation remotely.</p>
+        </div>
+        <div id="notifications-alerts" class="view">
+            <h1>Notifications & Alerts</h1>
+            <p>Warnings, alerts, and power usage updates.</p>
+        </div>
+        <div id="settings" class="view">
+            <h1>Settings</h1>
+            <p>Configure plug preferences and user options.</p>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
