@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Plug</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +23,7 @@
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
         <div class="profile-card">
-            <img src="https://static.wikia.nocookie.net/boruto/images/d/dc/Naruto%27s_Sage_Mode.png/revision/latest/scale-to-width-down/985?cb=20170913004358" alt="Profile Picture" class="profile-picture">
+            <img src="https://staticg.sportskeeda.com/editor/2022/08/53e15-16596004347246.png?w=640" alt="Profile Picture" class="profile-picture">
             <p class="user-name">Samuel Lunghe</p>
         </div>
         <nav>
@@ -43,27 +44,72 @@
             <h1>Dashboard</h1>
             <p>Overview of system activity and metrics.</p>
         </div>
+        
         <div id="readings" class="view">
             <h1>Readings</h1>
-            <p>Real-time power monitoring and readings display.</p>
+            
+            <!-- Relay Status -->
+            <div class="relay-status">
+                <h2>Relay Status</h2>
+                <p id="relay-status">Off</p>
+            </div>
+    
+            <!-- Sensor Readings (Voltage, Current, Temperature) -->
+            <div class="sensor-readings-tab">
+                <h2>Sensor Readings</h2>
+                <div class="sensor-readings">
+                    <div class="reading-card" id="voltage-card">
+                        <h3>Voltage</h3>
+                        <div id="voltage-gauge"></div>
+                    </div>
+                    <div class="reading-card" id="current-card">
+                        <h3>Current</h3>
+                        <div id="current-gauge"></div>
+                    </div>
+                    <div class="reading-card" id="temperature-card">
+                        <h3>Temperature</h3>
+                        <div id="temperature-gauge"></div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Power & Energy -->
+            <div class="power-energy-tab">
+                <h2>Power and Energy</h2>
+                <div class="power-energy">
+                    <div class="data-card">
+                        <h3>Power</h3>
+                        <p id="power">0 W</p>
+                    </div>
+                    <div class="data-card">
+                        <h3>Energy</h3>
+                        <p id="energy">0 kWh</p>
+                    </div>
+                </div>
+            </div>
         </div>
+    
         <div id="historical-data" class="view">
             <h1>Historical Data</h1>
             <p>Graphs and trends based on past energy usage.</p>
         </div>
+        
         <div id="remote-control" class="view">
             <h1>Remote Control</h1>
             <p>Manage plug settings and automation remotely.</p>
         </div>
+        
         <div id="notifications-alerts" class="view">
             <h1>Notifications & Alerts</h1>
             <p>Warnings, alerts, and power usage updates.</p>
         </div>
+        
         <div id="settings" class="view">
             <h1>Settings</h1>
             <p>Configure plug preferences and user options.</p>
         </div>
     </main>
+    
 
     <script src="app.js"></script>
 </body>

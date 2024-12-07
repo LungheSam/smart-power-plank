@@ -13,7 +13,8 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: #1e1e2f;
-    padding: 10px 20px;
+    padding: 20px;
+
 }
 
 .logo {
@@ -114,6 +115,81 @@ section {
 
 .active-view {
     display: block;
+}
+
+
+
+
+
+.readings-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+/* Sensor Readings Cards */
+.sensor-readings {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.reading-card {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.reading-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+/* Power & Energy Cards */
+.power-energy {
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.data-card {
+    background-color: #4c4f56;
+    color: white;
+    padding: 20px;
+    width: 40%;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.data-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+.data-card p{
+    font-size: 4rem;
+    font-weight: 600;
+}
+@media screen and (max-width: 768px) {
+   .data-card {
+        width: 60%;
+    }
+    .data-card p{
+        font-size: 3rem;
+    }
+    .sensor-readings {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .power-energy {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 /* Responsive Design */
