@@ -208,7 +208,7 @@ section {
 .hist-card {
     border: 1px solid #ddd;
     border-radius: 8px;
-    background-color: green;
+    background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
     height: 400px;
@@ -338,6 +338,9 @@ section {
 @media screen and (max-width: 768px) {
    .data-card {
         width: 80%;
+    }
+    .data-card.total-energy-used{
+        margin: 0 auto;
     }
     .data-card p{
         font-size: 3rem;

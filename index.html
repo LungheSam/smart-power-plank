@@ -91,52 +91,58 @@
     
         <div id="historical-data" class="view">
             <h1>Historical Data</h1>
-        
+            
+            <h2>Past 5hours</h2>
             <!-- Line Graphs Section -->
             <div class="line-graphs">
                 <div class="hist-card">
-                    <!-- <h3>Voltage (Last 5 Hours)</h3> -->
+    
                     <div id="voltage-graph" class="contained-graph"></div>
                 </div>
                 <div class="hist-card">
-                    <!-- <h3>Current (Last 5 Hours)</h3> -->
+    
                     <div id="current-graph" class="contained-graph"></div>
                 </div>
                 <div class="hist-card">
-                    <!-- <h3>Temperature (Last 5 Hours)</h3> -->
+                    
                     <div id="temperature-graph" class="contained-graph"></div>
                 </div>
                 <div class="hist-card">
-                    <!-- <h3>Power (Last 5 Hours)</h3> -->
                     <div id="power-graph" class="contained-graph"></div>
                 </div>
             </div>
         
             <!-- Energy Usage Bar Graphs -->
+            <h2>Energy Usage</h2>
             <div class="bar-graphs">
                 <div class="hist-card">
-                    <!-- <h3>Energy Usage (Last 7 Days)</h3> -->
+                
                     <div id="energy-7days-graph" class="contained-graph"></div>
                 </div>
                 <div class="hist-card">
-                    <!-- <h3>Energy Usage (Last 7 Hours)</h3> -->
+                    
                     <div id="energy-7hours-graph" class="contained-graph"></div>
                 </div>
+                
             </div>
         
             <!-- Total Energy Used -->
-            <!-- <div class="total-energy">
-                <div class="filter-options">
-                    <button onclick="filterEnergy('1day')">1 Day</button>
-                    <button onclick="filterEnergy('3days')">3 Days</button>
-                    <button onclick="filterEnergy('7days')">7 Days</button>
-                    <button onclick="filterEnergy('1month')">1 Month</button>
-                </div>
-                <div class="hist-card">
+            <div class="total-energy">
+                <div class="data-card total-energy-used">
                     <h3>Total Energy Used</h3>
+                    <div class="filter-options">
+                        <label for="energy-filter">Filter By:</label>
+                        <select id="energy-filter" onchange="filterEnergy(this.value)">
+                            <option value="1day">1 Day</option>
+                            <option value="3days">3 Days</option>
+                            <option value="7days">7 Days</option>
+                            <option value="1month">1 Month</option>
+                        </select>
+                    </div>
+                    
                     <p id="total-energy-value">- kWh</p>
                 </div>
-            </div> -->
+            </div>
         
             <!-- Export Data -->
             <div class="export-data">

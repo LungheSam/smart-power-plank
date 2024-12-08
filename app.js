@@ -124,6 +124,10 @@ function generateLineGraphs() {
         name: 'Voltage (V)',
         line: { color: '#FF5733' }
     };
+    var voltageLayout = {
+        title: 'Voltage (Last 5 Hours)',
+        yaxis: {title: 'Voltage (V)'}
+    };
 
     // Current data
     const currentData = {
@@ -134,7 +138,10 @@ function generateLineGraphs() {
         name: 'Current (A)',
         line: { color: '#33FF57' },
     };
-
+    var currentLayout = {
+        title: 'Current (Last 5 Hours)',
+        yaxis: {title: 'Current (A)'}
+    };
     // Temperature data
     const temperatureData = {
         x: hours,
@@ -143,6 +150,10 @@ function generateLineGraphs() {
         mode: 'lines+markers',
         name: 'Temperature (°C)',
         line: { color: '#3357FF' }
+    };
+    var temperatureLayout = {
+        title: 'Temperature (Last 5 Hours)',
+        yaxis: {title: 'Temperature (°C)'}
     };
 
     // Power data
@@ -154,18 +165,22 @@ function generateLineGraphs() {
         name: 'Power (W)',
         line: { color: '#FFC300' }
     };
+    var powerLayout = {
+        title: 'Power (Last 5 Hours)',
+        yaxis: {title: 'Power (W)'}
+    };
 
     // Render the graphs
-    Plotly.newPlot('voltage-graph', [voltageData]);
-    Plotly.newPlot('current-graph', [currentData]);
-    Plotly.newPlot('temperature-graph', [temperatureData]);
-    Plotly.newPlot('power-graph', [powerData]);
+    Plotly.newPlot('voltage-graph', [voltageData],voltageLayout);
+    Plotly.newPlot('current-graph', [currentData], currentLayout);
+    Plotly.newPlot('temperature-graph', [temperatureData], temperatureLayout);
+    Plotly.newPlot('power-graph', [powerData], powerLayout);
 }
 
 // Function to generate bar graphs for energy usage
 function generateBarGraphs() {
     // Data for the last 7 days
-    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const days = ['Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
     const energy7Days = [20, 25, 22, 18, 24, 26, 30];
 
     const energy7DaysData = {
@@ -175,10 +190,13 @@ function generateBarGraphs() {
         name: 'Energy Usage (kWh)',
         marker: { color: '#00B4D8' }
     };
-
+    var energy7DaysLayout = {
+        title: 'Energy (Last 7 Days)',
+        yaxis: {title: 'Energy (KWh)'}
+    };
     // Data for the last 7 hours
-    const hours = ['1 Hour Ago', '2 Hours Ago', '3 Hours Ago', '4 Hours Ago', '5 Hours Ago', '6 Hours Ago', '7 Hours Ago'];
-    const energy7Hours = [3, 2.8, 3.1, 2.9, 3.2, 3, 2.7];
+    const hours = ['1 Hour', '2 Hours', '3 Hours', '4 Hours'];
+    const energy7Hours = [3, 2.8, 3.1, 2.9];
 
     const energy7HoursData = {
         x: hours,
@@ -187,10 +205,13 @@ function generateBarGraphs() {
         name: 'Energy Usage (kWh)',
         marker: { color: '#FF5733' }
     };
-
+    var energy7HoursLayout = {
+        title: 'Energy (Last 4 Hours)',
+        yaxis: {title: 'Energy (KWh)'}
+    };
     // Render the bar graphs
-    Plotly.newPlot('energy-7days-graph', [energy7DaysData]);
-    Plotly.newPlot('energy-7hours-graph', [energy7HoursData]);
+    Plotly.newPlot('energy-7days-graph', [energy7DaysData], energy7DaysLayout);
+    Plotly.newPlot('energy-7hours-graph', [energy7HoursData], energy7HoursLayout);
 }
 
 // Function to filter total energy usage
