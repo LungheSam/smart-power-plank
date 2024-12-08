@@ -108,3 +108,139 @@ updateReadings();
 // Update every 5 seconds
 setInterval(updateReadings, 3000);
 
+
+
+// Function to generate line graphs
+function generateLineGraphs() {
+    // Data for the last 5 hours
+    const hours = ['1 Hour Ago', '2 Hours Ago', '3 Hours Ago', '4 Hours Ago', '5 Hours Ago'];
+
+    // Voltage data
+    const voltageData = {
+        x: hours,
+        y: [220, 221, 219, 222, 220],
+        type: 'scatter',
+        mode: 'lines+markers',
+        name: 'Voltage (V)',
+        line: { color: '#FF5733' }
+    };
+
+    // Current data
+    const currentData = {
+        x: hours,
+        y: [5, 5.2, 5.1, 5.3, 5.2],
+        type: 'scatter',
+        mode: 'lines+markers',
+        name: 'Current (A)',
+        line: { color: '#33FF57' },
+    };
+
+    // Temperature data
+    const temperatureData = {
+        x: hours,
+        y: [25, 26, 25.5, 27, 26.5],
+        type: 'scatter',
+        mode: 'lines+markers',
+        name: 'Temperature (°C)',
+        line: { color: '#3357FF' }
+    };
+
+    // Power data
+    const powerData = {
+        x: hours,
+        y: [1100, 1120, 1110, 1130, 1125],
+        type: 'scatter',
+        mode: 'lines+markers',
+        name: 'Power (W)',
+        line: { color: '#FFC300' }
+    };
+
+    // Render the graphs
+    Plotly.newPlot('voltage-graph', [voltageData]);
+    Plotly.newPlot('current-graph', [currentData]);
+    Plotly.newPlot('temperature-graph', [temperatureData]);
+    Plotly.newPlot('power-graph', [powerData]);
+}
+
+// Function to generate bar graphs for energy usage
+function generateBarGraphs() {
+    // Data for the last 7 days
+    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const energy7Days = [20, 25, 22, 18, 24, 26, 30];
+
+    const energy7DaysData = {
+        x: days,
+        y: energy7Days,
+        type: 'bar',
+        name: 'Energy Usage (kWh)',
+        marker: { color: '#00B4D8' }
+    };
+
+    // Data for the last 7 hours
+    const hours = ['1 Hour Ago', '2 Hours Ago', '3 Hours Ago', '4 Hours Ago', '5 Hours Ago', '6 Hours Ago', '7 Hours Ago'];
+    const energy7Hours = [3, 2.8, 3.1, 2.9, 3.2, 3, 2.7];
+
+    const energy7HoursData = {
+        x: hours,
+        y: energy7Hours,
+        type: 'bar',
+        name: 'Energy Usage (kWh)',
+        marker: { color: '#FF5733' }
+    };
+
+    // Render the bar graphs
+    Plotly.newPlot('energy-7days-graph', [energy7DaysData]);
+    Plotly.newPlot('energy-7hours-graph', [energy7HoursData]);
+}
+
+// Function to filter total energy usage
+function filterEnergy(filter) {
+    let totalEnergyUsed = 0;
+
+    switch (filter) {
+        case '1day':
+            totalEnergyUsed = 25; // Example value for 1 day
+            break;
+        case '3days':
+            totalEnergyUsed = 75; // Example value for 3 days
+            break;
+        case '7days':
+            totalEnergyUsed = 175; // Example value for 7 days
+            break;
+        case '1month':
+            totalEnergyUsed = 750; // Example value for 1 month
+            break;
+        default:
+            totalEnergyUsed = 0;
+    }
+
+    // Update the total energy value in the UI
+    document.getElementById('total-energy-value').textContent = `${totalEnergyUsed} kWh`;
+}
+
+// Function to export data as CSV
+function exportData() {
+    const csvData = `
+        Time, Voltage (V), Current (A), Temperature (°C), Power (W), Energy (kWh)
+        1 Hour Ago, 220, 5, 25, 1100, 3
+        2 Hours Ago, 221, 5.2, 26, 1120, 2.8
+        3 Hours Ago, 219, 5.1, 25.5, 1110, 3.1
+        4 Hours Ago, 222, 5.3, 27, 1130, 2.9
+        5 Hours Ago, 220, 5.2, 26.5, 1125, 3.2
+    `;
+
+    const blob = new Blob([csvData], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.setAttribute('href', url);
+    a.setAttribute('download', 'historical_data.csv');
+    a.click();
+}
+
+// Initialize the graphs when the DOM content is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+    generateLineGraphs();
+    generateBarGraphs();
+});
+
+

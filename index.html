@@ -15,7 +15,7 @@
     <!-- Top Bar -->
     <header class="top-bar">
         <div class="logo">
-            <span>Smart Plug</span>
+            <span>Nguvu Plug</span>
         </div>
         <button class="menu-btn" onclick="toggleSidebar()">☰</button>
     </header>
@@ -91,8 +91,60 @@
     
         <div id="historical-data" class="view">
             <h1>Historical Data</h1>
-            <p>Graphs and trends based on past energy usage.</p>
+        
+            <!-- Line Graphs Section -->
+            <div class="line-graphs">
+                <div class="hist-card">
+                    <!-- <h3>Voltage (Last 5 Hours)</h3> -->
+                    <div id="voltage-graph" class="contained-graph"></div>
+                </div>
+                <div class="hist-card">
+                    <!-- <h3>Current (Last 5 Hours)</h3> -->
+                    <div id="current-graph" class="contained-graph"></div>
+                </div>
+                <div class="hist-card">
+                    <!-- <h3>Temperature (Last 5 Hours)</h3> -->
+                    <div id="temperature-graph" class="contained-graph"></div>
+                </div>
+                <div class="hist-card">
+                    <!-- <h3>Power (Last 5 Hours)</h3> -->
+                    <div id="power-graph" class="contained-graph"></div>
+                </div>
+            </div>
+        
+            <!-- Energy Usage Bar Graphs -->
+            <div class="bar-graphs">
+                <div class="hist-card">
+                    <!-- <h3>Energy Usage (Last 7 Days)</h3> -->
+                    <div id="energy-7days-graph" class="contained-graph"></div>
+                </div>
+                <div class="hist-card">
+                    <!-- <h3>Energy Usage (Last 7 Hours)</h3> -->
+                    <div id="energy-7hours-graph" class="contained-graph"></div>
+                </div>
+            </div>
+        
+            <!-- Total Energy Used -->
+            <!-- <div class="total-energy">
+                <div class="filter-options">
+                    <button onclick="filterEnergy('1day')">1 Day</button>
+                    <button onclick="filterEnergy('3days')">3 Days</button>
+                    <button onclick="filterEnergy('7days')">7 Days</button>
+                    <button onclick="filterEnergy('1month')">1 Month</button>
+                </div>
+                <div class="hist-card">
+                    <h3>Total Energy Used</h3>
+                    <p id="total-energy-value">- kWh</p>
+                </div>
+            </div> -->
+        
+            <!-- Export Data -->
+            <div class="export-data">
+                <button onclick="exportData()">Export Data (CSV)</button>
+            </div>
         </div>
+        
+        
         
         <div id="remote-control" class="view">
             <h1>Remote Control</h1>
