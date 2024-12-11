@@ -265,3 +265,69 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+
+
+
+
+// Functions to turn the device ON and OFF
+function turnDeviceOn() {
+    document.getElementById('device-status').textContent = 'ON';
+    addNotification('ON Schedule activated!', 'on-schedule');
+}
+
+function turnDeviceOff() {
+    document.getElementById('device-status').textContent = 'OFF';
+    addNotification('OFF Schedule activated!', 'off-schedule');
+}
+
+// Schedule Management
+document.getElementById('on-schedule-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const time = document.getElementById('on-time').value;
+    addSchedule('ON', time);
+});
+
+document.getElementById('off-schedule-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const time = document.getElementById('off-time').value;
+    addSchedule('OFF', time);
+});
+
+// Function to add a schedule
+function addSchedule(type, time) {
+    const schedulesContainer = document.getElementById('active-schedules');
+    const scheduleCard = document.createElement('div');
+    scheduleCard.classList.add('schedule-card');
+    scheduleCard.innerHTML = `
+        <span>${type} at ${time}</span>
+        <div>
+            <button onclick="editSchedule(this)">Edit</button>
+            <button onclick="deleteSchedule(this)">Delete</button>
+        </div>
+    `;
+    schedulesContainer.appendChild(scheduleCard);
+    addNotification(`${type} Schedule set for ${time}`, type === 'ON' ? 'on-schedule' : 'off-schedule');
+}
+
+// Function to delete a schedule
+function deleteSchedule(button) {
+    button.parentElement.parentElement.remove();
+}
+
+// Function to edit a schedule (placeholder for now)
+function editSchedule(button) {
+    alert('Edit functionality will go here!');
+}
+
+// Function to add notifications
+function addNotification(message, className) {
+    const notificationsList = document.getElementById('notifications-list');
+    const notification = document.createElement('li');
+    notification.textContent = message;
+    notification.classList.add(className);
+    notificationsList.appendChild(notification);
+}
+
+
+

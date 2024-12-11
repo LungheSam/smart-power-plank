@@ -287,7 +287,6 @@ section {
 /* Export Data */
 .export-data button {
     display: block;
-    /* margin: 0 auto; */
     padding: 10px 20px;
     background-color: #0056b3;
     color: white;
@@ -303,10 +302,72 @@ section {
     background-color: #007BFF;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-    
+
+
+#remote-control-section-upper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
 }
+
+.remote-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    width: calc(33% - 20px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.control-buttons button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+#active-schedules .schedule-card {
+    background-color: blue;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#notifications-list li {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+#notifications-list .on-schedule {
+    background-color: #d4f4d2;
+}
+
+#notifications-list .off-schedule {
+    background-color: #e0e0e0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (max-width: 768px) {
 
@@ -360,6 +421,9 @@ section {
     .power-energy {
         flex-direction: column;
         align-items: center;
+    }
+    .remote-card {
+        width: 100%;
     }
 }
 
